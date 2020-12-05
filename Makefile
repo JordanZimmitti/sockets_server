@@ -3,17 +3,17 @@
 .cpp.o:
 	$(CC) -c $(CXXFLAGS) $<
 
-MAIN = server
+MAIN = ../server
+CLIENT = client
 CC = g++
-
 
 # Compile with debug option and all warnings on.
 CXXFLAGS = -g -std=c++11 -Wall -I../..
 
 # Object modules comprising this application.
-OBJ = Mom.o Socket.o tools.o main.o
+OBJ =  Mom.o Socket.o tools.o main.o
 
-contain: $(OBJ)
+contain: $(OBJ) $(CLIENTOBJ)
 	$(CC) -o $(MAIN) $(CXXFLAGS) $(OBJ)
 
 clean:
